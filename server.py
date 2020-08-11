@@ -15,6 +15,7 @@ from flask_sqlalchemy import SQLAlchemy
 from backend import CREAT_SERVER
 from backend.resources.Users import Users
 from backend.resources.Linebot import WebHook
+from backend.resources.Linebot import LineBot
 """
 Create the Server
 """
@@ -33,6 +34,8 @@ api = Api(app)
 api.add_resource(Users, "/user/<string:method>",
                  resource_class_kwargs={'db': db, 'bcrypt': bcrypt})
 api.add_resource(WebHook, "/linebot/webhook")
+api.add_resource(LineBot, "/linebot/<string:type_>",
+                 resource_class_kwargs={'db': db})
 
 
 # debug Api

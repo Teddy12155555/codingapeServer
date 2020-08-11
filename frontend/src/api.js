@@ -6,3 +6,5 @@ const userRequest = axios.create({ baseURL: URL });
 
 // Apis
 export const apiUserLogin = (data) => userRequest.post("/user/login", data);
+export const apiLineBotDayoff = (data) =>
+  userRequest.post("/linebot/dayoff", data);
