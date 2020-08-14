@@ -12,8 +12,10 @@ import {
 import Auth from "./components/auth";
 import Homepage from "./components/homepage";
 import Forbidden from "./components/forbidden";
-import Zoho_Nav from "./components/zoho-nav";
 import Day_Off_Form from "./components/day-off-form";
+import Zoho_Nav from "./components/zoho-nav";
+import LineBot_Nav from "./components/linebot-nav";
+import Day_Off_List from "./components/day-off-listView";
 
 ReactDOM.render(
   <Router>
@@ -22,7 +24,10 @@ ReactDOM.render(
       <Route exact path="/auth" component={Auth} />
       <Route exact path="/home" component={Homepage} />
       <Route exact path="/zoho-nav" component={Zoho_Nav} />
+      <Route exact path="/linebot-nav" component={LineBot_Nav} />
       <Route exact path="/day-off" component={Day_Off_Form} />
+      <Route exact path="/day-off-list" component={Day_Off_List} />
+
       <Redirect exact from="/" to="/auth" />
     </Switch>
   </Router>,

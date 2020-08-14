@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../scss/day-off.scss";
-import { apiLineBotDayoff } from "../api";
+import { apiLineBotDayoffPOST } from "../api";
 class Day_Off_Form extends Component {
   constructor() {
     super();
@@ -8,6 +8,7 @@ class Day_Off_Form extends Component {
       name: "",
       date: "",
       course: "",
+      course_location: "",
       reason: "",
       phone: "",
       status: 0,
@@ -30,10 +31,11 @@ class Day_Off_Form extends Component {
       name: this.state.name,
       date: this.state.date,
       course: this.state.course,
+      course_location: this.state.course_location,
       reason: this.state.reason,
       phone: this.state.phone,
     };
-    apiLineBotDayoff(dayoffObj).then((res) => {
+    apiLineBotDayoffPOST(dayoffObj).then((res) => {
       alert("提交成功!");
       this.setState({ status: 1 });
       window.location.reload(false);
@@ -80,11 +82,14 @@ class Day_Off_Form extends Component {
                           onChange={this.onChange}
                           required={true}
                         />
+                        <span className="tip">
+                          *欲請假之日期(例如：2020-08-09)
+                        </span>
                       </div>
                       <div className="app-form-group">
                         <input
                           className="app-form-control"
-                          placeholder="姓名"
+                          placeholder="學生姓名"
                           name="name"
                           onChange={this.onChange}
                           required={true}
@@ -109,16 +114,32 @@ class Day_Off_Form extends Component {
                       <div className="app-form-group">
                         <input
                           className="app-form-control"
+                          placeholder="課堂教室"
+                          name="course_location"
+                          onChange={this.onChange}
+                          list="locationlist"
+                          required={true}
+                        />
+                        <datalist id="locationlist">
+                          <option>總部</option>
+                          <option>天母</option>
+                          <option>高雄</option>
+                          <option>台南</option>
+                        </datalist>
+                      </div>
+                      <div className="app-form-group">
+                        <input
+                          className="app-form-control"
                           placeholder="請假事由"
                           name="reason"
                           onChange={this.onChange}
-                          required={true}
+                          required={false}
                         />
                       </div>
                       <div className="app-form-group">
                         <input
                           className="app-form-control"
-                          placeholder="聯絡電話"
+                          placeholder="家長聯絡電話"
                           name="phone"
                           onChange={this.onChange}
                           required={true}

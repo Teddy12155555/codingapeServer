@@ -7,7 +7,7 @@ class Homepage extends Component {
         <div className="home-page">
           <ul>
             <li>
-              <a href="#">
+              <a href="/linebot-nav">
                 <span className="title">Line Bot</span>
                 <span></span>
                 <span></span>
@@ -16,7 +16,7 @@ class Homepage extends Component {
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="/zoho-nav">
                 <span className="title">Zoho</span>
                 <span></span>
                 <span></span>

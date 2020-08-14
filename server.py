@@ -16,6 +16,7 @@ from backend import CREAT_SERVER
 from backend.resources.Users import Users
 from backend.resources.Linebot import WebHook
 from backend.resources.Linebot import LineBot
+from backend.resources.Zoho import Zoho
 """
 Create the Server
 """
@@ -36,6 +37,7 @@ api.add_resource(Users, "/user/<string:method>",
 api.add_resource(WebHook, "/linebot/webhook")
 api.add_resource(LineBot, "/linebot/<string:type_>",
                  resource_class_kwargs={'db': db})
+api.add_resource(Zoho, "/zoho/<string:type_>")
 
 
 # debug Api
