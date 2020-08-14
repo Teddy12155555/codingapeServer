@@ -4,8 +4,6 @@ from flask_jwt_extended import create_access_token
 from datetime import datetime
 import requests
 import json
-import asyncio
-import aiohttp
 
 
 ZOHO_CLIENT_ID = "1000.G05HVW5JO6O43GLQKAOP282YEUQK5M"
